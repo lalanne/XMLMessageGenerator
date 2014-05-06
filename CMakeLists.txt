@@ -18,6 +18,7 @@ add_executable(generator
         MobileOriginatedCall_XmlTag.cpp
         BasicCallInformation_XmlTag.cpp
         LocationInformation_XmlTag.cpp
+        BasicServiceUsedList_XmlTag.cpp
         main.cpp)
 
 target_link_libraries(generator tinyxml2)  
