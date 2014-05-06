@@ -8,7 +8,7 @@
 using namespace std;
 using namespace tinyxml2;
 
-void create_batch_control_info_xml_tag(XMLDocument& doc, XMLElement* const transferBatch){
+void create_batchControlInfo_xml_tag(XMLDocument& doc, XMLElement* const transferBatch){
     XMLElement* batchControlInfo = doc.NewElement("batchControlInfo");  
     XMLElement* sender = doc.NewElement("sender");  
     XMLText* senderText = doc.NewText("");
