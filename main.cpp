@@ -42,10 +42,18 @@ void create_basicCallInformation_XMLTAG(XMLDocument& doc, XMLElement* const mobi
     mobileOriginatedCall->LinkEndChild(basicCallInformation);
 }
 
+void create_locationInformation_XMLTAG(XMLDocument& doc, XMLElement* const mobileOriginatedCall){
+    XMLElement* locationInformation = doc.NewElement("locationInformation");
+    XMLText* locationInformationText = doc.NewText("");
+    locationInformation->LinkEndChild(locationInformationText);
+    mobileOriginatedCall->LinkEndChild(locationInformation);
+}
+
 void create_mobileOriginatedCall_XMLTAG(XMLDocument& doc, XMLElement* const callEventDetails){
     XMLElement* mobileOriginatedCall = doc.NewElement("mobileOriginatedCall");
 
     create_basicCallInformation_XMLTAG(doc, mobileOriginatedCall);
+    create_locationInformation_XMLTAG(doc, mobileOriginatedCall);
 
     callEventDetails->LinkEndChild(mobileOriginatedCall);
 }
