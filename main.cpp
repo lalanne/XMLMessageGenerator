@@ -1,3 +1,4 @@
+#include "tinyxml2.h"  
 #include <iostream>
 #include <vector>
 #include <string>
@@ -5,6 +6,7 @@
 #include <chrono>
 
 using namespace std;
+using namespace tinyxml2;
 
 int main(int argc, const char *argv[]){
     
@@ -37,6 +39,16 @@ int main(int argc, const char *argv[]){
     cout<<"imsi: "<<IMSI[random_imsi_index]<<endl;
     cout<<"localisation area: "<<LOCALISATION_AREA[random_loacalisation_area_index]<<endl;
 
+    cout<<"+++++++++++++++++++++++++++++"<<endl<<endl;
+
+    XMLDocument doc;
+
+    /*XML declaration*/
+    XMLDeclaration * decl = doc.NewDeclaration();
+    doc.LinkEndChild(decl); 
+
+    XMLPrinter printer;
+    doc.Print();
 
     return 0;
 }
