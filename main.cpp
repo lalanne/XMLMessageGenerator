@@ -44,11 +44,54 @@ int main(int argc, const char *argv[]){
     XMLDocument doc;
 
     /*XML declaration*/
-    XMLDeclaration * decl = doc.NewDeclaration();
+    XMLDeclaration* decl = doc.NewDeclaration();
     doc.LinkEndChild(decl); 
+
+    XMLElement* dataInterChange = doc.NewElement("DataInterChange");  
+    XMLElement* transferBatch = doc.NewElement("transferBatch");  
+
+    /*batchControlInfo*/
+    XMLElement* batchControlInfo = doc.NewElement("batchControlInfo");  
+    XMLElement* sender = doc.NewElement("sender");  
+    XMLText* senderText = doc.NewText("");
+    sender->LinkEndChild(senderText);
+	batchControlInfo->LinkEndChild(sender);
+	transferBatch->LinkEndChild(batchControlInfo);
+
+    /*accountingInfo*/
+    XMLElement* accountingInfo = doc.NewElement("accountingInfo");  
+    XMLElement* tapDecimalPlaces = doc.NewElement("tapDecimalPlaces");
+    XMLText* tapDecimalPlacesText = doc.NewText("");
+    tapDecimalPlaces->LinkEndChild(tapDecimalPlacesText);
+	accountingInfo->LinkEndChild(tapDecimalPlaces);
+	transferBatch->LinkEndChild(accountingInfo);
+
+    /*networkInfo*/
+    XMLElement* networkInfo = doc.NewElement("networkInfo");  
+    XMLText* networkInfoText = doc.NewText("");
+    networkInfo->LinkEndChild(networkInfoText);
+	transferBatch->LinkEndChild(networkInfo);
+
+    /*callEventDetails*/
+    XMLElement* callEventDetails = doc.NewElement("callEventDetails");  
+    XMLText* callEventDetailsText = doc.NewText("");
+    callEventDetails->LinkEndChild(callEventDetailsText);
+	transferBatch->LinkEndChild(callEventDetails);
+
+    /*auditControlInfo*/
+    XMLElement* auditControlInfo = doc.NewElement("auditControlInfo");  
+    XMLText* auditControlInfoText = doc.NewText("");
+    auditControlInfo->LinkEndChild(auditControlInfoText);
+	transferBatch->LinkEndChild(auditControlInfo);
+    
+
+	dataInterChange->LinkEndChild(transferBatch);
+	doc.LinkEndChild(dataInterChange);
 
     XMLPrinter printer;
     doc.Print();
+
+    cout<<endl;
 
     return 0;
 }
