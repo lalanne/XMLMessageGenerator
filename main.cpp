@@ -40,6 +40,13 @@ void create_callEventDetails_XMLTAG(XMLDocument& doc, XMLElement* const transfer
 	transferBatch->LinkEndChild(callEventDetails);
 }
 
+void create_auditControlInfo_XMLTAG(XMLDocument& doc, XMLElement* const transferBatch){
+    XMLElement* auditControlInfo = doc.NewElement("auditControlInfo");  
+    XMLText* auditControlInfoText = doc.NewText("");
+    auditControlInfo->LinkEndChild(auditControlInfoText);
+	transferBatch->LinkEndChild(auditControlInfo);
+}
+
 void create_message(XMLDocument& doc){
     /*XML declaration*/
     XMLDeclaration* decl = doc.NewDeclaration();
@@ -52,13 +59,7 @@ void create_message(XMLDocument& doc){
     create_accountingInfo_XMLTAG(doc, transferBatch);
     create_networkInfo_XMLTAG(doc, transferBatch);
     create_callEventDetails_XMLTAG(doc, transferBatch);
-
-    /*auditControlInfo*/
-    XMLElement* auditControlInfo = doc.NewElement("auditControlInfo");  
-    XMLText* auditControlInfoText = doc.NewText("");
-    auditControlInfo->LinkEndChild(auditControlInfoText);
-	transferBatch->LinkEndChild(auditControlInfo);
-    
+    create_auditControlInfo_XMLTAG(doc, transferBatch);
 
 	dataInterChange->LinkEndChild(transferBatch);
 	doc.LinkEndChild(dataInterChange);
