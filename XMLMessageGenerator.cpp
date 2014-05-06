@@ -1,33 +1,8 @@
 
-
 #include "XMLMessageGenerator.hpp"
 
 using namespace tinyxml2;
 
-void XMLMessageGenerator::create_batchControlInfo_XMLTAG(XMLDocument& doc, XMLElement* const transferBatch){
-    XMLElement* batchControlInfo = doc.NewElement("batchControlInfo");  
-    XMLElement* sender = doc.NewElement("sender");  
-    XMLText* senderText = doc.NewText("");
-    sender->LinkEndChild(senderText);
-	batchControlInfo->LinkEndChild(sender);
-	transferBatch->LinkEndChild(batchControlInfo);
-}
-
-void XMLMessageGenerator::create_accountingInfo_XMLTAG(XMLDocument& doc, XMLElement* const transferBatch){
-    XMLElement* accountingInfo = doc.NewElement("accountingInfo");  
-    XMLElement* tapDecimalPlaces = doc.NewElement("tapDecimalPlaces");
-    XMLText* tapDecimalPlacesText = doc.NewText("");
-    tapDecimalPlaces->LinkEndChild(tapDecimalPlacesText);
-	accountingInfo->LinkEndChild(tapDecimalPlaces);
-	transferBatch->LinkEndChild(accountingInfo);
-}
-
-void XMLMessageGenerator::create_networkInfo_XMLTAG(XMLDocument& doc, XMLElement* const transferBatch){
-    XMLElement* networkInfo = doc.NewElement("networkInfo");  
-    XMLText* networkInfoText = doc.NewText("");
-    networkInfo->LinkEndChild(networkInfoText);
-	transferBatch->LinkEndChild(networkInfo);
-}
 
 void XMLMessageGenerator::create_chargeableSubscriber_XMLTAG(XMLDocument& doc, XMLElement* const basicCallInformation){
     XMLElement* chargeableSubscriber = doc.NewElement("chargeableSubscriber");
@@ -100,13 +75,6 @@ void XMLMessageGenerator::create_callEventDetails_XMLTAG(XMLDocument& doc, XMLEl
     transferBatch->LinkEndChild(callEventDetails);
 }
 
-void XMLMessageGenerator::create_auditControlInfo_XMLTAG(XMLDocument& doc, XMLElement* const transferBatch){
-    XMLElement* auditControlInfo = doc.NewElement("auditControlInfo");  
-    XMLText* auditControlInfoText = doc.NewText("");
-    auditControlInfo->LinkEndChild(auditControlInfoText);
-	transferBatch->LinkEndChild(auditControlInfo);
-}
-
 void XMLMessageGenerator::create_message(XMLDocument& doc){
     /*XML declaration*/
     XMLDeclaration* decl = doc.NewDeclaration();
@@ -115,11 +83,12 @@ void XMLMessageGenerator::create_message(XMLDocument& doc){
     XMLElement* dataInterChange = doc.NewElement("DataInterChange");  
     XMLElement* transferBatch = doc.NewElement("transferBatch");  
 
-    create_batchControlInfo_XMLTAG(doc, transferBatch);
-    create_accountingInfo_XMLTAG(doc, transferBatch);
-    create_networkInfo_XMLTAG(doc, transferBatch);
+    batchControlInfo.create_batchControlInfo_XMLTAG(doc, transferBatch);
+    accountInfo.create_accountingInfo_XMLTAG(doc, transferBatch);
+    networkInfo.create_networkInfo_XMLTAG(doc, transferBatch);
+    auditControlInfo.create_auditControlInfo_XMLTAG(doc, transferBatch);
+
     create_callEventDetails_XMLTAG(doc, transferBatch);
-    create_auditControlInfo_XMLTAG(doc, transferBatch);
 
 	dataInterChange->LinkEndChild(transferBatch);
 	doc.LinkEndChild(dataInterChange);

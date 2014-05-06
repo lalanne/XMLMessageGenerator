@@ -9,6 +9,11 @@ include_directories("${CMAKE_CURRENT_SOURCE_DIR}/tinyxml2-master/")
 link_directories("${CMAKE_CURRENT_SOURCE_DIR}/tinyxml2-master/")
 
 add_executable(generator 
+        XMLMessageGenerator.cpp
+        BatchControlInfo_XmlTag.cpp
+        AccountInfo_XmlTag.cpp
+        NetworkInfo_XmlTag.cpp
+        AuditControlInfo_XmlTag.cpp
         main.cpp)
 
 target_link_libraries(generator tinyxml2)  
