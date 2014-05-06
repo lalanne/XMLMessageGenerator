@@ -26,6 +26,13 @@ void create_accountingInfo_XMLTAG(XMLDocument& doc, XMLElement* const transferBa
 	transferBatch->LinkEndChild(accountingInfo);
 }
 
+void create_networkInfo_XMLTAG(XMLDocument& doc, XMLElement* const transferBatch){
+    XMLElement* networkInfo = doc.NewElement("networkInfo");  
+    XMLText* networkInfoText = doc.NewText("");
+    networkInfo->LinkEndChild(networkInfoText);
+	transferBatch->LinkEndChild(networkInfo);
+}
+
 void create_message(XMLDocument& doc){
     /*XML declaration*/
     XMLDeclaration* decl = doc.NewDeclaration();
@@ -36,12 +43,7 @@ void create_message(XMLDocument& doc){
 
     create_batchControlInfo_XMLTAG(doc, transferBatch);
     create_accountingInfo_XMLTAG(doc, transferBatch);
-
-    /*networkInfo*/
-    XMLElement* networkInfo = doc.NewElement("networkInfo");  
-    XMLText* networkInfoText = doc.NewText("");
-    networkInfo->LinkEndChild(networkInfoText);
-	transferBatch->LinkEndChild(networkInfo);
+    create_networkInfo_XMLTAG(doc, transferBatch);
 
     /*callEventDetails*/
     XMLElement* callEventDetails = doc.NewElement("callEventDetails");  
