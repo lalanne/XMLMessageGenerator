@@ -8,13 +8,22 @@
 using namespace std;
 using namespace tinyxml2;
 
-void create_batchControlInfo_xml_tag(XMLDocument& doc, XMLElement* const transferBatch){
+void create_batchControlInfo_XMLTAG(XMLDocument& doc, XMLElement* const transferBatch){
     XMLElement* batchControlInfo = doc.NewElement("batchControlInfo");  
     XMLElement* sender = doc.NewElement("sender");  
     XMLText* senderText = doc.NewText("");
     sender->LinkEndChild(senderText);
 	batchControlInfo->LinkEndChild(sender);
 	transferBatch->LinkEndChild(batchControlInfo);
+}
+
+void create_accountingInfo_XMLTAG(XMLDocument& doc, XMLElement* const transferBatch){
+    XMLElement* accountingInfo = doc.NewElement("accountingInfo");  
+    XMLElement* tapDecimalPlaces = doc.NewElement("tapDecimalPlaces");
+    XMLText* tapDecimalPlacesText = doc.NewText("");
+    tapDecimalPlaces->LinkEndChild(tapDecimalPlacesText);
+	accountingInfo->LinkEndChild(tapDecimalPlaces);
+	transferBatch->LinkEndChild(accountingInfo);
 }
 
 void create_message(XMLDocument& doc){
@@ -25,15 +34,8 @@ void create_message(XMLDocument& doc){
     XMLElement* dataInterChange = doc.NewElement("DataInterChange");  
     XMLElement* transferBatch = doc.NewElement("transferBatch");  
 
-    create_batchControlInfo_xml_tag(doc, transferBatch);
-
-    /*accountingInfo*/
-    XMLElement* accountingInfo = doc.NewElement("accountingInfo");  
-    XMLElement* tapDecimalPlaces = doc.NewElement("tapDecimalPlaces");
-    XMLText* tapDecimalPlacesText = doc.NewText("");
-    tapDecimalPlaces->LinkEndChild(tapDecimalPlacesText);
-	accountingInfo->LinkEndChild(tapDecimalPlaces);
-	transferBatch->LinkEndChild(accountingInfo);
+    create_batchControlInfo_XMLTAG(doc, transferBatch);
+    create_accountingInfo_XMLTAG(doc, transferBatch);
 
     /*networkInfo*/
     XMLElement* networkInfo = doc.NewElement("networkInfo");  
