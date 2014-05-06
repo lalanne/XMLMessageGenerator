@@ -17,6 +17,7 @@ add_executable(generator
         CallEventDetails_XmlTag.cpp
         MobileOriginatedCall_XmlTag.cpp
         BasicCallInformation_XmlTag.cpp
+        LocationInformation_XmlTag.cpp
         main.cpp)
 
 target_link_libraries(generator tinyxml2)  

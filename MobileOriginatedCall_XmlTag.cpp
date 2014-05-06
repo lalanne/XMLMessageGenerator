@@ -7,19 +7,12 @@ void MobileOriginatedCall_XmlTag::create_mobileOriginatedCall_XMLTAG(XMLDocument
     XMLElement* mobileOriginatedCall = doc.NewElement("mobileOriginatedCall");
 
     basicCallInformation.create_basicCallInformation_XMLTAG(doc, mobileOriginatedCall);
+    locationInformation.create_locationInformation_XMLTAG(doc, mobileOriginatedCall);
 
-    create_locationInformation_XMLTAG(doc, mobileOriginatedCall);
     create_basicServiceUsedList_XMLTAG(doc, mobileOriginatedCall);
     create_operatorSpecInformation_XMLTAG(doc, mobileOriginatedCall);
 
     callEventDetails->LinkEndChild(mobileOriginatedCall);
-}
-
-void MobileOriginatedCall_XmlTag::create_locationInformation_XMLTAG(XMLDocument& doc, XMLElement* const mobileOriginatedCall){
-    XMLElement* locationInformation = doc.NewElement("locationInformation");
-    XMLText* locationInformationText = doc.NewText("");
-    locationInformation->LinkEndChild(locationInformationText);
-    mobileOriginatedCall->LinkEndChild(locationInformation);
 }
 
 void MobileOriginatedCall_XmlTag::create_basicServiceUsedList_XMLTAG(XMLDocument& doc, XMLElement* const mobileOriginatedCall){
