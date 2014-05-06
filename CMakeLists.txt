@@ -16,6 +16,7 @@ add_executable(generator
         AuditControlInfo_XmlTag.cpp
         CallEventDetails_XmlTag.cpp
         MobileOriginatedCall_XmlTag.cpp
+        BasicCallInformation_XmlTag.cpp
         main.cpp)
 
 target_link_libraries(generator tinyxml2)  
