@@ -35,21 +35,27 @@ void create_networkInfo_XMLTAG(XMLDocument& doc, XMLElement* const transferBatch
 	transferBatch->LinkEndChild(networkInfo);
 }
 
+void create_basicCallInformation_XMLTAG(XMLDocument& doc, XMLElement* const mobileOriginatedCall){
+    XMLElement* basicCallInformation = doc.NewElement("basicCallInformation");
+    XMLText* basicCallInformationText = doc.NewText("");
+    basicCallInformation->LinkEndChild(basicCallInformationText);
+    mobileOriginatedCall->LinkEndChild(basicCallInformation);
+}
+
 void create_mobileOriginatedCall_XMLTAG(XMLDocument& doc, XMLElement* const callEventDetails){
     XMLElement* mobileOriginatedCall = doc.NewElement("mobileOriginatedCall");
-    XMLText* mobileOriginatedCallText = doc.NewText("");
-    mobileOriginatedCall->LinkEndChild(mobileOriginatedCallText);
+
+    create_basicCallInformation_XMLTAG(doc, mobileOriginatedCall);
+
     callEventDetails->LinkEndChild(mobileOriginatedCall);
 }
 
 void create_callEventDetails_XMLTAG(XMLDocument& doc, XMLElement* const transferBatch){
     XMLElement* callEventDetails = doc.NewElement("callEventDetails");  
 
-    for(unsigned int i = 0; i<3; ++i){
-        create_mobileOriginatedCall_XMLTAG(doc, callEventDetails);
-    }
-
-	transferBatch->LinkEndChild(callEventDetails);
+    for(unsigned int i = 0; i<3; ++i) create_mobileOriginatedCall_XMLTAG(doc, callEventDetails);
+	
+    transferBatch->LinkEndChild(callEventDetails);
 }
 
 void create_auditControlInfo_XMLTAG(XMLDocument& doc, XMLElement* const transferBatch){
