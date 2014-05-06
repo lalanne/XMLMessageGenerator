@@ -9,17 +9,10 @@ void MobileOriginatedCall_XmlTag::create_mobileOriginatedCall_XMLTAG(XMLDocument
     basicCallInformation.create_basicCallInformation_XMLTAG(doc, mobileOriginatedCall);
     locationInformation.create_locationInformation_XMLTAG(doc, mobileOriginatedCall);
     basicServiceUsedList.create_basicServiceUsedList_XMLTAG(doc, mobileOriginatedCall);
-
-    create_operatorSpecInformation_XMLTAG(doc, mobileOriginatedCall);
+    operatorSpecInformation.create_operatorSpecInformation_XMLTAG(doc, mobileOriginatedCall);
 
     callEventDetails->LinkEndChild(mobileOriginatedCall);
 }
 
-void MobileOriginatedCall_XmlTag::create_operatorSpecInformation_XMLTAG(XMLDocument& doc, XMLElement* const mobileOriginatedCall){
-    XMLElement* operatorSpecInformation = doc.NewElement("operatorSpecInformation");
-    XMLText* operatorSpecInformationText = doc.NewText("");
-    operatorSpecInformation->LinkEndChild(operatorSpecInformationText);
-    mobileOriginatedCall->LinkEndChild(operatorSpecInformation);
-}
 
 

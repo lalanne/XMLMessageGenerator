@@ -19,6 +19,7 @@ add_executable(generator
         BasicCallInformation_XmlTag.cpp
         LocationInformation_XmlTag.cpp
         BasicServiceUsedList_XmlTag.cpp
+        OperatorSpecInformation_XmlTag.cpp
         main.cpp)
 
 target_link_libraries(generator tinyxml2)  
