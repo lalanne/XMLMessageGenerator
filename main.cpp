@@ -35,14 +35,20 @@ void create_networkInfo_XMLTAG(XMLDocument& doc, XMLElement* const transferBatch
 	transferBatch->LinkEndChild(networkInfo);
 }
 
-void create_callEventDetails_XMLTAG(XMLDocument& doc, XMLElement* const transferBatch){
-    XMLElement* callEventDetails = doc.NewElement("callEventDetails");  
-
+void create_mobileOriginatedCall_XMLTAG(XMLDocument& doc, XMLElement* const callEventDetails){
     XMLElement* mobileOriginatedCall = doc.NewElement("mobileOriginatedCall");
     XMLText* mobileOriginatedCallText = doc.NewText("");
     mobileOriginatedCall->LinkEndChild(mobileOriginatedCallText);
+    callEventDetails->LinkEndChild(mobileOriginatedCall);
+}
 
-	callEventDetails->LinkEndChild(mobileOriginatedCall);
+void create_callEventDetails_XMLTAG(XMLDocument& doc, XMLElement* const transferBatch){
+    XMLElement* callEventDetails = doc.NewElement("callEventDetails");  
+
+    for(unsigned int i = 0; i<3; ++i){
+        create_mobileOriginatedCall_XMLTAG(doc, callEventDetails);
+    }
+
 	transferBatch->LinkEndChild(callEventDetails);
 }
 
