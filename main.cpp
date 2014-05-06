@@ -1,4 +1,6 @@
+
 #include "tinyxml2.h"  
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -35,8 +37,12 @@ void create_networkInfo_XMLTAG(XMLDocument& doc, XMLElement* const transferBatch
 
 void create_callEventDetails_XMLTAG(XMLDocument& doc, XMLElement* const transferBatch){
     XMLElement* callEventDetails = doc.NewElement("callEventDetails");  
-    XMLText* callEventDetailsText = doc.NewText("");
-    callEventDetails->LinkEndChild(callEventDetailsText);
+
+    XMLElement* mobileOriginatedCall = doc.NewElement("mobileOriginatedCall");
+    XMLText* mobileOriginatedCallText = doc.NewText("");
+    mobileOriginatedCall->LinkEndChild(mobileOriginatedCallText);
+
+	callEventDetails->LinkEndChild(mobileOriginatedCall);
 	transferBatch->LinkEndChild(callEventDetails);
 }
 
