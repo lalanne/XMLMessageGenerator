@@ -8,6 +8,15 @@
 using namespace std;
 using namespace tinyxml2;
 
+void create_batch_control_info_xml_tag(XMLDocument& doc, XMLElement* const transferBatch){
+    XMLElement* batchControlInfo = doc.NewElement("batchControlInfo");  
+    XMLElement* sender = doc.NewElement("sender");  
+    XMLText* senderText = doc.NewText("");
+    sender->LinkEndChild(senderText);
+	batchControlInfo->LinkEndChild(sender);
+	transferBatch->LinkEndChild(batchControlInfo);
+}
+
 void create_message(XMLDocument& doc){
     /*XML declaration*/
     XMLDeclaration* decl = doc.NewDeclaration();
@@ -16,13 +25,7 @@ void create_message(XMLDocument& doc){
     XMLElement* dataInterChange = doc.NewElement("DataInterChange");  
     XMLElement* transferBatch = doc.NewElement("transferBatch");  
 
-    /*batchControlInfo*/
-    XMLElement* batchControlInfo = doc.NewElement("batchControlInfo");  
-    XMLElement* sender = doc.NewElement("sender");  
-    XMLText* senderText = doc.NewText("");
-    sender->LinkEndChild(senderText);
-	batchControlInfo->LinkEndChild(sender);
-	transferBatch->LinkEndChild(batchControlInfo);
+    create_batchControlInfo_xml_tag(doc, transferBatch);
 
     /*accountingInfo*/
     XMLElement* accountingInfo = doc.NewElement("accountingInfo");  
