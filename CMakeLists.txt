@@ -26,6 +26,7 @@ add_executable(generator
         src/TotalCallEventDuration_XmlTag.cpp
         src/SimChargeableSubscriber_XmlTag.cpp
         src/Imsi_XmlTag.cpp
+        src/NetworkLocation_XmlTag.cpp
         src/main.cpp)
 
 target_link_libraries(generator tinyxml2)  
