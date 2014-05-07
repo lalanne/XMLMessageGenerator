@@ -21,6 +21,7 @@ add_executable(generator
         BasicServiceUsedList_XmlTag.cpp
         OperatorSpecInformation_XmlTag.cpp
         ChargeableSubscriber_XmlTag.cpp
+        CallEventStartTimeStamp_XmlTag.cpp
         main.cpp)
 
 target_link_libraries(generator tinyxml2)  
