@@ -27,6 +27,10 @@ add_executable(generator
         src/SimChargeableSubscriber_XmlTag.cpp
         src/Imsi_XmlTag.cpp
         src/NetworkLocation_XmlTag.cpp
+        src/RecEntityCode_XmlTag.cpp
+        src/CallReference_XmlTag.cpp
+        src/LocationArea_XmlTag.cpp
+        src/CellId_XmlTag.cpp
         src/main.cpp)
 
 target_link_libraries(generator tinyxml2)  
