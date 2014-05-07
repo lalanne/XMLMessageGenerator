@@ -1,0 +1,10 @@
+*.swp
+*.xml
+*.swo
+cmake_install.cmake
+generator
+CMakeCache.txt
+CMakeFiles
+Makefile
+tinyxml2-master/
+
