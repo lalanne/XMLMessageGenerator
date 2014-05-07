@@ -8,18 +8,11 @@ void BasicCallInformation_XmlTag::create_basicCallInformation_XMLTAG(XMLDocument
 
     chargeableSubscriber.create_chargeableSubscriber_XMLTAG(doc, basicCallInformation);
     callEventStartTimeStamp.create_callEventStartTimeStamp_XMLTAG(doc, basicCallInformation);
-
-    create_totalCallEventDuration_XMLTAG(doc, basicCallInformation);
+    totalCallEventDuration.create_totalCallEventDuration_XMLTAG(doc, basicCallInformation);
 
     mobileOriginatedCall->LinkEndChild(basicCallInformation);
 }
 
 
-void BasicCallInformation_XmlTag::create_totalCallEventDuration_XMLTAG(XMLDocument& doc, XMLElement* const basicCallInformation){
-    XMLElement* totalCallEventDuration = doc.NewElement("totalCallEventDuration");
-    XMLText* totalCallEventDurationText = doc.NewText("");
-    totalCallEventDuration->LinkEndChild(totalCallEventDurationText);
-    basicCallInformation->LinkEndChild(totalCallEventDuration);
-}
 
 
