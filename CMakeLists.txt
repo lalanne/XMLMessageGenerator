@@ -5,26 +5,27 @@ project (XMLMessagesGenerator)
 add_definitions(-std=c++11)
 add_definitions(-Wall)
 
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include/")  
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/tinyxml2-master/")  
 link_directories("${CMAKE_CURRENT_SOURCE_DIR}/tinyxml2-master/")
 
 add_executable(generator 
-        XMLMessageGenerator.cpp
-        BatchControlInfo_XmlTag.cpp
-        AccountInfo_XmlTag.cpp
-        NetworkInfo_XmlTag.cpp
-        AuditControlInfo_XmlTag.cpp
-        CallEventDetails_XmlTag.cpp
-        MobileOriginatedCall_XmlTag.cpp
-        BasicCallInformation_XmlTag.cpp
-        LocationInformation_XmlTag.cpp
-        BasicServiceUsedList_XmlTag.cpp
-        OperatorSpecInformation_XmlTag.cpp
-        ChargeableSubscriber_XmlTag.cpp
-        CallEventStartTimeStamp_XmlTag.cpp
-        TotalCallEventDuration_XmlTag.cpp
-        SimChargeableSubscriber_XmlTag.cpp
-        Imsi_XmlTag.cpp
-        main.cpp)
+        src/XMLMessageGenerator.cpp
+        src/BatchControlInfo_XmlTag.cpp
+        src/AccountInfo_XmlTag.cpp
+        src/NetworkInfo_XmlTag.cpp
+        src/AuditControlInfo_XmlTag.cpp
+        src/CallEventDetails_XmlTag.cpp
+        src/MobileOriginatedCall_XmlTag.cpp
+        src/BasicCallInformation_XmlTag.cpp
+        src/LocationInformation_XmlTag.cpp
+        src/BasicServiceUsedList_XmlTag.cpp
+        src/OperatorSpecInformation_XmlTag.cpp
+        src/ChargeableSubscriber_XmlTag.cpp
+        src/CallEventStartTimeStamp_XmlTag.cpp
+        src/TotalCallEventDuration_XmlTag.cpp
+        src/SimChargeableSubscriber_XmlTag.cpp
+        src/Imsi_XmlTag.cpp
+        src/main.cpp)
 
 target_link_libraries(generator tinyxml2)  
