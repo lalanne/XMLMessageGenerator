@@ -10,7 +10,7 @@
 
 class NetworkLocation_XmlTag{
     public:
-        void create_networkLocation_XMLTAG(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* const locationInformation);
+        void create(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* const locationInformation);
 
     private:
         RecEntityCode_XmlTag recEntityCode;

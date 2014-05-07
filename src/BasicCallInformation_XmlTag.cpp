@@ -3,7 +3,7 @@
 
 using namespace tinyxml2;
 
-void BasicCallInformation_XmlTag::create_basicCallInformation_XMLTAG(XMLDocument& doc, XMLElement* const mobileOriginatedCall){
+void BasicCallInformation_XmlTag::create(XMLDocument& doc, XMLElement* const mobileOriginatedCall){
     XMLElement* basicCallInformation = doc.NewElement("basicCallInformation");
 
     chargeableSubscriber.create_chargeableSubscriber_XMLTAG(doc, basicCallInformation);

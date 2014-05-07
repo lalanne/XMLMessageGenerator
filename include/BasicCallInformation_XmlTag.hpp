@@ -9,7 +9,7 @@
 
 class BasicCallInformation_XmlTag{
     public:
-        void create_basicCallInformation_XMLTAG(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* const mobileOriginatedCall);
+        void create(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* const mobileOriginatedCall);
 
     private:
         ChargeableSubscriber_XmlTag chargeableSubscriber;

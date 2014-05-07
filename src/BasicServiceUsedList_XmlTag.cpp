@@ -3,7 +3,7 @@
 
 using namespace tinyxml2;
 
-void BasicServiceUsedList_XmlTag::create_basicServiceUsedList_XMLTAG(XMLDocument& doc, XMLElement* const mobileOriginatedCall){
+void BasicServiceUsedList_XmlTag::create(XMLDocument& doc, XMLElement* const mobileOriginatedCall){
     XMLElement* basicServiceUsedList = doc.NewElement("basicServiceUsedList");
     XMLText* basicServiceUsedListText = doc.NewText("");
     basicServiceUsedList->LinkEndChild(basicServiceUsedListText);

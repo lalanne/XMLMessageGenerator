@@ -7,7 +7,7 @@
 
 class LocationInformation_XmlTag{
     public:
-        void create_locationInformation_XMLTAG(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* const mobileOriginatedCall);
+        void create(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* const mobileOriginatedCall);
 
     private:
         NetworkLocation_XmlTag networkLocation;
