@@ -10,7 +10,9 @@ class CallEventDetails_XmlTag{
         void create(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* const transferBatch);
 
     private:
-        void mobileOriginatedCallGenerator(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* const transferBatch);
+        void generate_random_number_of_mobile_originated_call_sections(tinyxml2::XMLDocument& doc, 
+                                                                    tinyxml2::XMLElement* const transferBatch);
+        unsigned int random_number() const;
 
     private:
         MobileOriginatedCall_XmlTag mobileOriginatedCall;
