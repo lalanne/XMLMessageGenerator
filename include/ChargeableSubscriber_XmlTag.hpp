@@ -7,7 +7,7 @@
 
 class ChargeableSubscriber_XmlTag{
     public:
-        void create_chargeableSubscriber_XMLTAG(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* const basicCallInformation);
+        void create(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* const basicCallInformation);
 
     private:
         SimChargeableSubscriber_XmlTag simChargeableSubscriber;

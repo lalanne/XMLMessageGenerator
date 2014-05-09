@@ -7,7 +7,7 @@
 
 class SimChargeableSubscriber_XmlTag{
     public:
-       void create_simChargeableSubscriber_XMLTAG(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* const basicCallInformation); 
+       void create(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* const basicCallInformation); 
         
     private:
         Imsi_XmlTag imsi;
