@@ -10,7 +10,7 @@ void Imsi_XmlTag::create_imsi_XMLTAG(XMLDocument& doc, XMLElement* const simChar
     XMLElement* imsi = doc.NewElement("imsi");
     ImsiGenerator imsiGenerator;
 
-    XMLText* imsiText = doc.NewText(imsiGenerator.imsi().c_str());
+    XMLText* imsiText = doc.NewText(imsiGenerator.imsi());
     imsi->LinkEndChild(imsiText);
     simChargeableSubscriber->LinkEndChild(imsi);
 }

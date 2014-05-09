@@ -6,7 +6,7 @@
 
 class ImsiGenerator{
     public:
-        std::string imsi();
+        const char* const imsi();
 
     private:
         std::vector<std::string> imsis{"272993733999123", 
