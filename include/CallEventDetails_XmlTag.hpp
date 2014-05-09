@@ -7,7 +7,7 @@
 
 class CallEventDetails_XmlTag{
     public:
-        void create_callEventDetails_XMLTAG(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* const transferBatch);
+        void create(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* const transferBatch);
 
     private:
         MobileOriginatedCall_XmlTag mobileOriginatedCall;

@@ -3,7 +3,7 @@
 
 using namespace tinyxml2;
 
-void AuditControlInfo_XmlTag::create_auditControlInfo_XMLTAG(XMLDocument& doc, XMLElement* const transferBatch){
+void AuditControlInfo_XmlTag::create(XMLDocument& doc, XMLElement* const transferBatch){
     XMLElement* auditControlInfo = doc.NewElement("auditControlInfo");  
     XMLText* auditControlInfoText = doc.NewText("");
     auditControlInfo->LinkEndChild(auditControlInfoText);

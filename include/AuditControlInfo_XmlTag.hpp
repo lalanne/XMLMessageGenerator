@@ -5,10 +5,7 @@
 
 class AuditControlInfo_XmlTag{
     public:
-        void create_auditControlInfo_XMLTAG(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* const transferBatch);
-
-    private:
-
+        void create(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* const transferBatch);
 };
 
 #endif //AUDIT_CONTROL_INFO_XML_TAG_W8F9WEFHJKWHEFY89WEH

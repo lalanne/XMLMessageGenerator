@@ -3,7 +3,7 @@
 
 using namespace tinyxml2;
 
-void AccountInfo_XmlTag::create_accountingInfo_XMLTAG(XMLDocument& doc, XMLElement* const transferBatch){
+void AccountInfo_XmlTag::create(XMLDocument& doc, XMLElement* const transferBatch){
     XMLElement* accountingInfo = doc.NewElement("accountingInfo");  
     XMLElement* tapDecimalPlaces = doc.NewElement("tapDecimalPlaces");
     XMLText* tapDecimalPlacesText = doc.NewText("");
