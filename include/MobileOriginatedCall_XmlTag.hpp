@@ -10,7 +10,7 @@
 
 class MobileOriginatedCall_XmlTag{
     public:
-        void create_mobileOriginatedCall_XMLTAG(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* const callEventDetails);
+        void create(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* const callEventDetails);
 
     private:
         BasicCallInformation_XmlTag basicCallInformation;

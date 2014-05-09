@@ -3,7 +3,7 @@
 
 using namespace tinyxml2;
 
-void Imsi_XmlTag::create_imsi_XMLTAG(XMLDocument& doc, XMLElement* const simChargeableSubscriber){
+void Imsi_XmlTag::create(XMLDocument& doc, XMLElement* const simChargeableSubscriber){
     XMLElement* imsi = doc.NewElement("imsi");
     ImsiGenerator imsiGenerator;
 

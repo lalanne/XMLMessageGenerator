@@ -3,9 +3,9 @@
 
 using namespace tinyxml2;
 
-void SimChargeableSubscriber_XmlTag::create_simChargeableSubscriber_XMLTAG(XMLDocument& doc, XMLElement* const chargeableSubscriber){
+void SimChargeableSubscriber_XmlTag::create(XMLDocument& doc, XMLElement* const chargeableSubscriber){
     XMLElement* simChargeableSubscriber = doc.NewElement("simChargeableSubscriber");
-    imsi.create_imsi_XMLTAG(doc, simChargeableSubscriber);
+    imsi.create(doc, simChargeableSubscriber);
     chargeableSubscriber->LinkEndChild(simChargeableSubscriber);
 }
 

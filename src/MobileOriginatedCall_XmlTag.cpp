@@ -3,7 +3,7 @@
 
 using namespace tinyxml2;
 
-void MobileOriginatedCall_XmlTag::create_mobileOriginatedCall_XMLTAG(XMLDocument& doc, XMLElement* const callEventDetails){
+void MobileOriginatedCall_XmlTag::create(XMLDocument& doc, XMLElement* const callEventDetails){
     XMLElement* mobileOriginatedCall = doc.NewElement("mobileOriginatedCall");
 
     basicCallInformation.create(doc, mobileOriginatedCall);
