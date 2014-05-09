@@ -31,6 +31,7 @@ add_executable(generator
         src/CallReference_XmlTag.cpp
         src/LocationArea_XmlTag.cpp
         src/CellId_XmlTag.cpp
+        src/ImsiGenerator.cpp
         src/main.cpp)
 
 target_link_libraries(generator tinyxml2)  
