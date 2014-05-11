@@ -33,7 +33,7 @@ add_executable(generator
         src/CellId_XmlTag.cpp
         src/ImsiContainer.cpp
         src/CellIdContainer.cpp
-        src/LocationAreaGenerator.cpp
+        src/LocationAreaContainer.cpp
         src/main.cpp)
 
 target_link_libraries(generator tinyxml2)  
