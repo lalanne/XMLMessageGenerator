@@ -8,6 +8,9 @@
 class Imsi_XmlTag{
     public:
         void create(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* const simChargeableSubscriber);
+
+    private:
+        ImsiGenerator imsiGenerator;
 };
 
 #endif //IMSI_XML_TAG_9Q8RHG98HWEG9HWEG
