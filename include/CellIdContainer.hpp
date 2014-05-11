@@ -4,9 +4,10 @@
 #include <string>
 #include <vector>
 
-class CellIdGenerator{
+class CellIdContainer{
     public:
-        const char* const cellId();
+        unsigned int size() const;
+        const std::string& operator[](const unsigned int i) const;
 
     private:
         std::vector<std::string> cellIds{"37107", 

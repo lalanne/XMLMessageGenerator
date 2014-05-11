@@ -31,8 +31,8 @@ add_executable(generator
         src/CallReference_XmlTag.cpp
         src/LocationArea_XmlTag.cpp
         src/CellId_XmlTag.cpp
-        src/ImsiGenerator.cpp
-        src/CellIdGenerator.cpp
+        src/ImsiContainer.cpp
+        src/CellIdContainer.cpp
         src/LocationAreaGenerator.cpp
         src/main.cpp)
 

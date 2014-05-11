@@ -4,11 +4,9 @@
 #include <string>
 #include <vector>
 
-class LocationAreaGenerator{
-    public:
-        const char* const locationArea();
-
-    private:
+struct LocationAreaGenerator{
+        unsigned int size() const {return locationAreas.size();}
+         const std::string& operator[](const unsigned int i) const{return locationAreas[i];}
         std::vector<std::string> locationAreas{"6710",
                                             "3960",
                                             "4561",
