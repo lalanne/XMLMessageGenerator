@@ -11,21 +11,21 @@ using namespace std;
 const unsigned int CORRECT_NUMBER_OF_ARGUMENTS = 2;
 const unsigned int NUMBER_OF_MESSAGES_POSITION = 1;
 
-void generate_message(){
-    XMLDocument doc;
-    XMLMessageGenerator generator;
-    generator.create_message(doc);
-    XMLPrinter printer;
-    doc.Print();
-}
-
 void print_error_message(){
     cerr<<"ERROR: invalid number of arguments."<<endl;
     cerr<<"usage: ./generator <number of messages>"<<endl;
 }
 
 void generate_x_number_of_messages(const unsigned int number_of_messages){
-    for(unsigned int i=0; i<number_of_messages; ++i) generate_message();
+    XMLDocument doc;
+    XMLDeclaration* decl = doc.NewDeclaration();
+    doc.LinkEndChild(decl); 
+    XMLMessageGenerator generator;
+
+    for(unsigned int i=0; i<number_of_messages; ++i) generator.create_message(doc);
+
+    XMLPrinter printer;
+    doc.Print();
 }
 
 int main(int argc, const char *argv[]){

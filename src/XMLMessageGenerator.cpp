@@ -4,10 +4,6 @@
 using namespace tinyxml2;
 
 void XMLMessageGenerator::create_message(XMLDocument& doc){
-    /*XML declaration*/
-    XMLDeclaration* decl = doc.NewDeclaration();
-    doc.LinkEndChild(decl); 
-
     XMLElement* dataInterChange = doc.NewElement("DataInterChange");  
     XMLElement* transferBatch = doc.NewElement("transferBatch");  
 
