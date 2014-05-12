@@ -8,6 +8,8 @@
 using namespace tinyxml2;
 using namespace std;
 
+const unsigned int CORRECT_NUMBER_OF_ARGUMENTS = 2;
+const unsigned int NUMBER_OF_MESSAGES_POSITION = 1;
 
 void generate_message(){
     XMLDocument doc;
@@ -27,8 +29,8 @@ void generate_x_number_of_messages(const unsigned int number_of_messages){
 }
 
 int main(int argc, const char *argv[]){
-    if(argc != 2) print_error_message();
-    else generate_x_number_of_messages(atoi(argv[1]));
+    if(argc != CORRECT_NUMBER_OF_ARGUMENTS) print_error_message();
+    else generate_x_number_of_messages(atoi(argv[NUMBER_OF_MESSAGES_POSITION]));
     
     return 0;
 }
