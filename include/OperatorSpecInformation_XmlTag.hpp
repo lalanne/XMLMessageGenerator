@@ -6,8 +6,6 @@
 class OperatorSpecInformation_XmlTag{
     public:
         void create(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* const mobileOriginatedCall);
-
-    private:
 };
 
 #endif //OPERATOR_SPEC_INFORMATION_XML_TAG_9WE8HF9W8HFE98HWF
