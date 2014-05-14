@@ -40,6 +40,6 @@ obtain_coordinates <- function(cell_ids, hash_table){
 cell_ids = cellIds_from_messages()
 raw_lookup_table = import_raw_lookup_table()
 hash_table = build_hash_table(raw_lookup_table)
-points = obtain_coordinates(cell_ids, hash_table)
+points = obtain_coordenates(cell_ids, hash_table)
 
 points
