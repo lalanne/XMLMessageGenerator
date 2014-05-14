@@ -26,7 +26,7 @@ build_hash_table <- function(raw_lookup_table){
     return(hash_table)
 }
 
-obtain_coordinates <- function(cell_ids, hash_table){
+obtain_coordenates <- function(cell_ids, hash_table){
     points = list()
     for(i in cell_ids){
         point = as.character(hash_table[[i]])
