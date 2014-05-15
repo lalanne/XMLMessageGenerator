@@ -19,18 +19,19 @@ build_hash_table <- function(raw_lookup_table){
         key = as.character(raw_lookup_table[i,"SiteID"])
         easting = as.character(raw_lookup_table[i,"Easting"])
         northing = as.character(raw_lookup_table[i,"Northing"])
-        source = as.character(raw_lookup_table[i,"Source"])
 
-        hash_table[[key]] = cbind(easting,",",northing,",",source)
+        hash_table[[key]] = c(easting,northing)
     };
     return(hash_table)
 }
 
 obtain_coordenates <- function(cell_ids, hash_table){
-    points = list()
+    points = data.frame(easting=numeric(1),northing=numeric(1),stringsAsFactors=TRUE)
+
     for(i in cell_ids){
-        point = as.character(hash_table[[i]])
-        points[[i]] = point
+        point = hash_table[[i]]
+        print(point)
+        points = rbind(points,point)
     }
     return(points)
 }
@@ -43,3 +44,5 @@ hash_table = build_hash_table(raw_lookup_table)
 points = obtain_coordenates(cell_ids, hash_table)
 
 points
+
+warnings()
