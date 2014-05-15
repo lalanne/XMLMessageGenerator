@@ -1,9 +1,11 @@
 
+library(sp)
+
 ################# FUNCTIONS ####################
 
 cellIds_from_messages <- function(){
     library(XML)
-    doc=xmlTreeParse("/Users/clalanne/MyCode/XMLMessageGenerator/messages.xml", useInternalNodes = TRUE)
+    doc=xmlTreeParse("/Users/clalanne/MyCode/XMLMessageGenerator/messages_50.xml", useInternalNodes = TRUE)
     list_of_cellIds=xpathApply(doc,"//cellId",xmlValue)
     return(list_of_cellIds)
 }
@@ -30,7 +32,6 @@ obtain_coordenates <- function(cell_ids, hash_table){
 
     for(i in cell_ids){
         point = hash_table[[i]]
-        print(point)
         points = rbind(points,point)
     }
     return(points)
@@ -43,6 +44,15 @@ raw_lookup_table = import_raw_lookup_table()
 hash_table = build_hash_table(raw_lookup_table)
 points = obtain_coordenates(cell_ids, hash_table)
 
+##### Transform to numeric, numeric data frame##########
+points <- transform(points, easting = as.numeric(easting), northing = as.numeric(northing))
+sapply(points, mode)
 points
+
+##### creating an spatial point sets##########
+points.sp = SpatialPoints(points)
+points.sp
+
+plot(points.sp, pch = 2)
 
 warnings()
